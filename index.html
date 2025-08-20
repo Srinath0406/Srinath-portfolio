@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Srinath S — Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f9fafc 0%, #d0f0fd 100%);
+      color: #22223b;
+    }
+
+    /* Navbar */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 12px #ddefff4d;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav h1 {
+      color: #34b7f1;
+      font-size: 2rem;
+      margin: 0;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #22223b;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #fd5f7f;
+      outline: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 70px 10vw 60px 10vw;
+      background: linear-gradient(120deg, #e4f0ff 68%, #fff8e9 100%);
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      min-height: 75vh;
+      border-bottom: 4px solid #f5f7fa;
+      
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .hero-text {
+      max-width: 540px;
+      flex: 1 1 400px;
+    }
+    .hero-text h1 {
+      font-size: 3.2rem;
+      color: #19252f;
+      margin-bottom: 0.7rem;
+    }
+    .hero-text h1 span {
+      color: #fd5f7f;
+      font-weight: bold;
+    }
+    .hero-text p {
+      margin: 18px 0 30px 0;
+      font-size: 1.3rem;
+      color: #26314d;
+      line-height: 1.5;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .hero-btns .btn {
+      padding: 13px 34px;
+      background: linear-gradient(90deg, #58e1e1 30%, #ff92a7 100%);
+      color: #22223b;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 10px #e5e5e580;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+      outline: none;
+      text-align: center;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .hero-btns .btn:hover,
+    .hero-btns .btn:focus {
+      background: linear-gradient(90deg, #fd5f7f 50%, #6ce1e5 100%);
+      color: #fff;
+      outline: none;
+    }
+
+    /* Organic Blob Shape Container */
+    .hero-image {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      flex: 1 1 280px;
+      min-width: 280px;
+    }
+    footer {
+  background: #f5f5f5;  /* light background */
+  color: #333;          /* text color */
+  text-align: center;   /* center text */
+  padding: 15px 0;      /* spacing */
+  margin-top: 0px;     /* gap from above content */
+  font-size: 14px;
+}
+
+    /* Blob SVG background */
+    .blob-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 280px;
+      z-index: 1;
+      filter: drop-shadow(0 0 10px rgba(253,95,127,0.35));
+      animation: blobMove 10s infinite alternate ease-in-out;
+    }
+    /* The image on top */
+    .hero-image img {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fd5f7f;
+      box-shadow: 0 0 30px rgba(253, 95, 127, 0.5);
+      z-index: 2;
+      margin: 30px auto;
+      display: block;
+    }
+
+    /* Blob morphing animation */
+    @keyframes blobMove {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(15px, -15px) scale(1.1);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        border-radius: 0 0 40px 40px;
+        padding: 60px 5vw 40px 5vw;
+      }
+      .hero-text,
+      .hero-image {
+        max-width: 100%;
+        flex: none;
+      }
+    }
+
+    /* Blob background as large blue shape behind entire hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: #007bff; /* vibrant blue */
+      filter: blur(150px);
+      border-radius: 50% 40% 60% 50% / 60% 50% 60% 40%; /* organic blob shape */
+      z-index: 0;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h1>Srinath S</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Hello, I'm <span>Srinath S</span></h1>
+      <p>
+        Innovative Developer driven by curiosity and a deep passion for web technology.<br>
+        I build interactive, high-quality digital experiences focused on performance and design.<br>
+        Let’s shape the future, one project at a time!
+      </p>
+      <div class="hero-btns">
+        <a href="projects.html" class="btn" role="button" tabindex="0">See My Work</a>
+        <a href="contact.html" class="btn" role="button" tabindex="0">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-image" aria-label="Profile picture cage with organic shape">
+      <!-- SVG blob background -->
+      <svg class="blob-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" >
+        <path fill="#fd5f7f" fill-opacity="0.35" d="M43.1,-66.9C51.1,-60,44.8,-39.8,45.5,-24.4C46.2,-9,54.9,3.4,53.7,12.4C52.5,21.5,41.3,27.3,32.2,39.5C23,51.7,16.1,70.4,4.7,72.5C-6.8,74.5,-20.5,60,-32.1,50C-43.8,39.9,-53.2,34.2,-56.6,25.1C-59.9,16,-57.4,3.5,-53.5,-8.5C-49.7,-20.5,-44.5,-31.9,-37,-40.1C-29.5,-48.3,-19.7,-53.4,-10.8,-57.5C-1.9,-61.6,6.7,-64.6,18.2,-67.9C29.7,-71.2,43,-75.8,43.1,-66.9Z" transform="translate(100 100)" />
+      </svg>
+      <!-- Profile Image -->
+      <img src="C:\\Users\\Srinath\\Music\\internship\\App development\\portfolio\\Srinath images (2).png" alt="Profile photo of Srinath S" tabindex="0"/>
+    </div>
+  </section>
+</body>
+</html>
+  <footer>
+  <p>&copy; 2025 All Rights Reserved | Srinath S</p>
+</footer>
+
+
